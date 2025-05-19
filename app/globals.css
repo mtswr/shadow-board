@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 216 34% 17%;
+
+    --radius: 0;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Rajdhani", sans-serif;
+    letter-spacing: 0.02em;
+  }
+
+  .quest-title {
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  .rank-badge {
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+}
+
+@layer components {
+  .sl-panel {
+    @apply bg-slate-800/60 rounded-lg border border-slate-700 p-4 relative overflow-hidden;
+  }
+
+  .sl-panel-header {
+    @apply p-3 border-b border-slate-700 flex justify-between items-center mb-2;
+  }
+
+  .sl-quest-card {
+    @apply bg-slate-900 border border-slate-700 rounded-lg p-3 hover:border-blue-500 transition-all;
+  }
+
+  .sl-button {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-rajdhani tracking-wider;
+  }
+
+  .sl-glow-text {
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+  }
+
+  .decorative-corner {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-style: solid;
+    border-color: rgba(59, 130, 246, 0.7);
+  }
+
+  .corner-top-left {
+    top: 0;
+    left: 0;
+    border-width: 2px 0 0 2px;
+  }
+
+  .corner-top-right {
+    top: 0;
+    right: 0;
+    border-width: 2px 2px 0 0;
+  }
+
+  .corner-bottom-left {
+    bottom: 0;
+    left: 0;
+    border-width: 0 0 2px 2px;
+  }
+
+  .corner-bottom-right {
+    bottom: 0;
+    right: 0;
+    border-width: 0 2px 2px 0;
+  }
+
+  .sl-corner-decoration-tl {
+    @apply absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-blue-500;
+  }
+
+  .sl-corner-decoration-tr {
+    @apply absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-blue-500;
+  }
+
+  .sl-corner-decoration-bl {
+    @apply absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-blue-500;
+  }
+
+  .sl-corner-decoration-br {
+    @apply absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-blue-500;
+  }
+
+  .solo-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .solo-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .solo-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(59, 130, 246, 0.2) 1px, transparent 1px) 0 0 / 20px 20px,
+      linear-gradient(to bottom, rgba(59, 130, 246, 0.2) 1px, transparent 1px) 0 0 / 20px 20px;
+    opacity: 0.05;
+    pointer-events: none;
+  }
+}
